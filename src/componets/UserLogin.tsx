@@ -23,7 +23,8 @@ const requestOptions:RequestInit = {
 }
 
 fetch("http://localhost:3000/api/auth/login", requestOptions)
-  .then(response => response.text())
+  .then(response => response.json())
+  .then(response =>localStorage.setItem("user",response.responseObj.token  ))
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
   
@@ -34,7 +35,7 @@ const onSubmit = (data:User)=>{loginUser(data) }
 
   return (
     <>
-    <Link to="/" style={{ padding: 5 ,height:'100px'}}> <button >Home </button></Link>
+    <Link to="/" style={{ padding: 5 ,height:'100px'}}> <button style={{margin: 5  ,backgroundColor:'lightgray'}}>Home </button></Link>
     <div>
     <form onSubmit={handleSubmit(onSubmit as SubmitHandler<FieldValues>)}>
    <p> <input placeholder="email" {...register("email", { required: true })} /></p>
@@ -46,3 +47,8 @@ const onSubmit = (data:User)=>{loginUser(data) }
   )
 
 }
+
+
+localStorage.setItem("or","oris storage")
+const data = localStorage.getItem("or")
+console.log(data);

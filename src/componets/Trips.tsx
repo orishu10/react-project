@@ -24,7 +24,6 @@ export default function CreatTrips() {
 
 
  async function deleteTrip(id:string) {
-  console.log(id);
 
   const myHeaders = new Headers();
 myHeaders.append("authorization", "test-token");
@@ -54,9 +53,10 @@ fetch(`http://localhost:3000/api/trips/${id}`, requestOptions)
     <>
     <div id='container'>
     <span>
-    <Link to="/NewTripForm" style={{ padding: 5 ,height:'100px'}}> <button  style={{margin:'5px' ,backgroundColor:'lightgreen'}}>New Form </button>
+    <Link to="/NewTripForm" style={{ padding: 5 ,height:'100px'}}> <button  style={{margin:'5px' ,backgroundColor:'lightgray'}}>New Form </button>
  </Link>
-    <Link to="/" style={{ padding: 5 ,height:'100px'}}> <button  style={{margin:'5px' ,backgroundColor:'lightgreen'}} >Home </button></Link>
+    <Link to="/" style={{ padding: 5 ,height:'100px'}}> <button  style={{margin:'5px'
+     ,backgroundColor:'lightgray'}} >Home </button></Link>
     </span>
     <h1>All Trips</h1>
     <div id='tripCards'>
@@ -70,9 +70,13 @@ fetch(`http://localhost:3000/api/trips/${id}`, requestOptions)
           <img src={trip.image} alt="img" width={"300px"} height={"200px"} />
           <div>
           <Link to={`/TripDetail/${trip.id}`} >
-          <button style={{margin:'5px' ,backgroundColor:'lightgreen'}}>Trip Deatils</button>
+          <button style={{margin:'5px' ,backgroundColor:'lightgray'}}>Trip Deatils</button>
           </Link>
-          <button style={{margin:'5px',backgroundColor:'lightgreen'}} onClick={()=>deleteTrip(trip.id)}>Delete Trip</button>
+          <button style={{margin:'5px',backgroundColor:'lightgray'}} onClick={()=>
+          // if (window.localStorage){
+
+          // }
+            deleteTrip(trip.id)}>Delete Trip</button>
           </div>
 
           </div>

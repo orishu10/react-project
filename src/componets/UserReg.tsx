@@ -34,7 +34,7 @@ const onSubmit = (data:User)=>{login(data) }
 
   return (
     <div>
-      <Link to="/" style={{ padding: 5 ,height:'100px'}}> <button >Home </button></Link>
+      <Link to="/" > <button style={{margin: 5  ,backgroundColor:'lightgray'}}>Home </button></Link>
         <form onSubmit={handleSubmit(onSubmit as SubmitHandler<FieldValues>)}>
    <p> <input placeholder="email" {...register("email", { required: true })} /></p>
    <p> <input placeholder="password" {...register("password", { required: true })}/></p>

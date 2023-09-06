@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import { BrowserRouter as Router, Routes, Route, Link, useParams } from 'react-router-dom';
-
+import './TripDetail.css'
 interface Trip {
   name: string;
   destination: string;
@@ -30,17 +30,17 @@ export default function TripDetail() {
   return (
     <>
     <div>
+        <Link to="/Trips" >
+          <button style={{margin: 5  ,backgroundColor:'lightgray'}} >All Trips </button>
+          </Link>
         <h2>{tripsDeatail?.name}</h2>
-        <img src={tripsDeatail?.image} alt="img" width={"650px"} height={"400px"} />
+        <img src={tripsDeatail?.image} alt="img" width={"400px"} height={"350px"} />
         <div>{tripsDeatail?.destination}</div>
         <div>{tripsDeatail?.startDate} - {tripsDeatail?.endDate}</div>
         <div>{tripsDeatail?.description}</div>
         <div>{tripsDeatail?.price}</div>
         <div>{tripsDeatail?.activities}</div>
     </div>
-        <Link to="/Trips" >
-          <button >All Trips </button>
-          </Link>
 </>
   )
 }
